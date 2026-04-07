@@ -448,7 +448,15 @@ A histogram is one good option, but you may choose another `ggplot2` visualizati
 Your goal is to show how well the model separates the classes based on predicted probability.
 
 ```{r probability-plot}
-# Write code here
+
+ggplot(log_results, aes(x = .pred_good, fill = Status)) +
+  geom_density() +
+  labs(x = "Predicted Probability of 'Good'",
+       y = "Density",
+       fill = "True Status",
+       title = "Predicted Probablity Distribution by True Status")
+
+
 ```
 
 Then answer:
@@ -459,7 +467,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+It appears that the model is unable to separate the two classes well. The peaks for good and bad are somewhat close to each other, and thus, this represents that the model has difficulty differentiating the two classes. I see the overlap occurring at the 70% probability for "Good". This overlap represents a false negative and a false positive. A false negative for every "bad" individual that falls to the right of 0.5, and a false positive for every "good" falling left of 0.5. 
 
 ---
 
