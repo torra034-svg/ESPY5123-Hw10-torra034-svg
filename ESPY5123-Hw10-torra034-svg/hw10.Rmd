@@ -268,6 +268,7 @@ Then answer:
 **Response:**
 
 We are fitting data on the training set only because we are training our model to recognize patterns. If we used the entire dataset then we'd have no test data to verify our model since the model has access to the entire dataset. The benefit of keeping the model and formula inside a workflow is that we can apply this model to different datasets (e.g another credit_data dataset).
+
 ---
 
 # Part 4: Generate Predictions
@@ -282,7 +283,7 @@ You should generate:
 Then combine those predictions with the original test data.
 
 ```{r logistic-predictions}
-# Write code here
+
 ```
 
 After generating predictions, answer:
