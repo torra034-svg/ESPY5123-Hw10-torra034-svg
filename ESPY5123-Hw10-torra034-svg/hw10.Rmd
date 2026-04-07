@@ -90,7 +90,21 @@ Your code should:
 - help you determine whether this is a classification problem
 
 ```{r outcome-exploration}
-# Write code here
+
+ggplot(credit_data, aes(x = Status, y = Income)) +
+  geom_col() +
+  labs(x = "Credit Status",
+       title = "Credit Status by Income")
+
+
+ggplot(credit_data, aes(x = Status, fill = Job)) +
+  geom_bar() +
+  facet_wrap(~ Job) +
+  labs(x = "Credit Status",
+       y = "Count",
+       fill = "Job Type",
+       title = "Credit Status by Job Type")
+
 ```
 
 After running your code, answer the following:
@@ -101,7 +115,7 @@ After running your code, answer the following:
 
 **Response:**
 
-_Type your response here._
+The name of the outcome variable is Status. The possible classes are either good or bad. This is a classification problem because Status is a binary variable - it can only be good or bad - and we are interested in predicting the probability of an individual either being classified into good or bad.
 
 ## 1.2 Examine class balance
 
