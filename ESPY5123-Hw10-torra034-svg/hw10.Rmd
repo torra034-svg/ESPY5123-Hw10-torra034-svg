@@ -334,7 +334,8 @@ The rows represent the actual values whereas the columns represent the predicted
 Use `metrics()` to calculate performance measures for your logistic regression model.
 
 ```{r logistic-metrics}
-# Write code here
+log_results %>% 
+  metrics(truth = Status, estimate = .pred_class)
 ```
 
 Then answer:
@@ -345,7 +346,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+Accuracy is how close the model was from estimating the actual values. The other metric is kap. Accuracy alone is not enough to judge performance considering our model is only 77% accurate. We need to evaluate the ROC AUC as well.
 
 ---
 
