@@ -1,7 +1,7 @@
 ---
 title: "Homework: Building and Evaluating a Classification Model"
-author: "Your Name"
-date: "Enter date here"
+author: "Patrick Torralba"
+date: "04/07/2026"
 output: 
   github_document:
     toc: true
