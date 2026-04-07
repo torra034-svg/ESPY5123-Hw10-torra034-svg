@@ -173,7 +173,17 @@ Expectations:
 - Use **stratification on the outcome variable** so that class proportions are preserved.
 
 ```{r split-data}
-# Write code here
+
+set.seed(123)
+
+data_split <- initial_split(credit_data,
+                    prop = 0.80,
+                    strata = Status)
+
+train_data <- training(data_split)
+
+test_data <- testing(data_split)
+
 ```
 
 Then answer:
@@ -183,7 +193,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+We split data into training and testing datasets because we are trying to train the model by using the training data. And then we assess the model by verifying it with the testing data. Stratifying is useful because it ensures that we have an equal distribution of Status across both datasets.
 
 ## 2.2 Choose predictors
 
