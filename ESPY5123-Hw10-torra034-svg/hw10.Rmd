@@ -222,12 +222,10 @@ Create a **logistic regression specification** using `tidymodels`.
 
 ```{r logistic-spec}
 
-log_status <- logistic_reg() %>% 
+log_spec <- logistic_reg() %>% 
   set_engine("glm") %>% 
-  set_mode("classification") %>% 
-  fit(Status ~ Income + Job + Debt,
-      data = credit_data)
-
+  set_mode("classification") 
+  
 
 ```
 
@@ -239,7 +237,14 @@ Create a workflow that:
 - adds a formula with the outcome and your chosen predictors
 
 ```{r logistic-workflow}
-# Write code here
+
+log_workflow <- workflow() %>% 
+  add_model(log_spec) %>% 
+  add_formula(Status ~ Income + Job + Debt)
+
+log_workflow
+
+
 ```
 
 ## 3.3 Fit the model
@@ -247,7 +252,12 @@ Create a workflow that:
 Fit your workflow on the training data.
 
 ```{r logistic-fit}
-# Write code here
+
+log_fit <- log_workflow %>% 
+  fit(data = credit_data)
+
+
+log_fit
 ```
 
 Then answer:
@@ -257,8 +267,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
-
+We are fitting data on the training set only because we are training our model to recognize patterns. If we used the entire dataset then we'd have no test data to verify our model since the model has access to the entire dataset. The benefit of keeping the model and formula inside a workflow is that we can apply this model to different datasets (e.g another credit_data dataset).
 ---
 
 # Part 4: Generate Predictions
