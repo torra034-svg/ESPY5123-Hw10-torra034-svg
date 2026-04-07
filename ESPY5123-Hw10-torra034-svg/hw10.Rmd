@@ -375,7 +375,11 @@ cm_df <- as.data.frame(cm$table)
 
 ggplot(cm_df, aes(x = Prediction, y = Truth, fill = Freq)) +
   geom_tile(alpha = 0.5) +
-  geom_text(aes(label = Freq), color = "black", size = 5)
+  geom_text(aes(label = Freq), color = "black", size = 5) +
+  labs(x = "Predicted Classes",
+       y = "True Class",
+       fill = "Count",
+       title = "Confusion Matrix")
 
 ```
 
@@ -401,7 +405,27 @@ This means you should:
 - label cells with rounded proportions
 
 ```{r confusion-matrix-proportion-plot}
-# Write code here
+
+conf_prop_status_conf_mat <- conf_mat(log_results, truth = Status, estimate = .pred_class)
+
+
+conf_prop_status_df <- as.data.frame(conf_prop_status_conf_mat$table) %>% 
+  group_by(Truth) %>% 
+  mutate(prop = (Freq / sum(Freq)))
+  
+
+ggplot(conf_prop_status_df, aes(x = Prediction, y = Truth, fill = Freq)) +
+  geom_tile() +
+  geom_text(aes(label = round(prop, 2)), color = "black") +
+  labs(
+    x = "Predicted Classes",
+    y = "True Class",
+    fill = "Proportion",
+    title = "Confusion Matrix (proportions)"
+    
+  )
+
+
 ```
 
 Then answer:
@@ -412,7 +436,8 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+Proportions might be more useful than counts because we can compare the false positives and false negatives against the true values. A strong performance would look like having really high proportion values and very light blue colors in the bad x bad and the good x good cells. The proportions do not suggest similar performances across both classes. This matrix indicates that the model is really effective at predicting "Good" credit status but ineffective at predicting "Bad" credit status.
+
 
 ## 6.3 Probability distribution plot
 
