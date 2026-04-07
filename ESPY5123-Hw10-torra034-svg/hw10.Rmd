@@ -366,7 +366,17 @@ Expectations:
 - display the count in each cell with `geom_text()`
 
 ```{r confusion-matrix-count-plot}
-# Write code here
+
+cm <- log_results %>% 
+  conf_mat(truth = Status, estimate = .pred_class) 
+
+
+cm_df <- as.data.frame(cm$table)
+
+ggplot(cm_df, aes(x = Prediction, y = Truth, fill = Freq)) +
+  geom_tile(alpha = 0.5) +
+  geom_text(aes(label = Freq), color = "black", size = 5)
+
 ```
 
 Then answer:
@@ -377,7 +387,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+I mapped the the Freq variable to fill so it would show the counts in my geom_tile() plot. Geom_tile is appropriate because we are showing a 2x2 table that shows a visualization of how accurate our model is. The patterns that are super easy to notice are the counts and colors. For example, it is very easy to see that are good x good cell has 587 counts and is light blue.
 
 ## 6.2 Confusion matrix heatmap using proportions
 
