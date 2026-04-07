@@ -311,7 +311,11 @@ It is useful to keep both because the probabilities allow you to see how the dis
 Create a confusion matrix for your logistic regression predictions on the test set.
 
 ```{r logistic-confusion-matrix}
-# Write code here
+
+log_results %>% 
+  conf_mat(truth = Status, estimate = .pred_class)
+
+
 ```
 
 Then answer:
@@ -323,7 +327,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+The rows represent the actual values whereas the columns represent the predicted values. The correct predictions are located on the symmetrical intersections (e.g bad x bad and good x good). The model can make false negatives and false positive mistakes.
 
 ## 5.2 Performance metrics
 
