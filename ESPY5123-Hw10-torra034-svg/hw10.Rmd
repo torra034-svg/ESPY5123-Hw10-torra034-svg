@@ -74,8 +74,7 @@ Prompt yourself with these questions:
 
 **Response:**
 
-_Type your response here._
-
+The dataset has 4454 rows and 14 columns. Most of the variables are numerical but a handful such as status, home, marital, records, and job are categorical predictors. The outcome is cateogorical (e.g good / bad). Variables that are useful for prediction include job, expenses, income, assests, debt, amount, and price.
 ---
 
 # Part 1: Understanding the Classification Problem
