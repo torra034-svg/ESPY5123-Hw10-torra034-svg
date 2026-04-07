@@ -482,7 +482,12 @@ Your code should:
 - calculate AUC
 
 ```{r roc-and-auc}
-# Write code here
+
+roc_curve_data <- roc_curve(log_results, truth = Status, .pred_bad)
+
+autoplot(roc_curve_data)
+
+roc_auc(log_results, truth = Status, .pred_bad)
 ```
 
 Then answer:
@@ -493,7 +498,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+The ROC curve shows the model's true positive rate against the false positive rate. In other words, the ROC curve is good at comparing the true and false positive rates, whereas the confusion matrix only shows us how people were classified (e.g count or proportion of people into good or bad). The AUC value is 0.688 which means our model is only 68.8% accurate when predicting an individual's status.
 
 ---
 
