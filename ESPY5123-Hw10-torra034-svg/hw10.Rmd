@@ -279,7 +279,16 @@ Then combine those predictions with the original test data.
 
 ```{r logistic-predictions}
 
+log_credit_status_preds <- predict(log_fit, new_data = test_data)
 
+log_credit_prob_preds <-predict(log_fit, new_data = test_data, type = "prob")
+
+log_results <- test_data %>% 
+  select(Status) %>% 
+  bind_cols(log_credit_status_preds, log_credit_prob_preds)
+
+
+log_results
 ```
 
 After generating predictions, answer:
@@ -289,7 +298,9 @@ After generating predictions, answer:
 
 **Response:**
 
-_Type your response here._
+A predicted probability gives the decimal value of the likelihood an individual is to either have good credit or bad credit. The predicted class is an absolute that is determined by the good / bad decimal value. For example, if the predicted good value is higher than the predicted bad value, then the predicted status is good.
+
+It is useful to keep both because the probabilities allow you to see how the distribution whereas the class is needed for an absolute interpretation.
 
 ---
 
