@@ -209,7 +209,8 @@ You do **not** need to choose the “best” predictors, but your choices should
 
 **Response:**
 
-_Type your response here._
+I choose the following predictor variables: Income, Debt, and Job. I selected these variables because I believe they can strongly influence an individual's credit status. For example, an individual's job and income direclty impacts their spending habits, and thus to a degree, their credit status. I chose not to use variables like age, marital, and seniority because I felt that they weren't as powerful predictors as the the aforementioend selected variables. 
+
 
 ---
 
