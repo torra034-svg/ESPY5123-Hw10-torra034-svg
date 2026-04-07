@@ -13,6 +13,7 @@ library(tidymodels)
 library(tidyverse)
 library(modeldata)
 library(rpart.plot)
+library(psych)
 
 set.seed(25)
 ```
@@ -91,6 +92,8 @@ Your code should:
 
 ```{r outcome-exploration}
 
+summary(credit_data$Status)
+
 ggplot(credit_data, aes(x = Status, y = Income)) +
   geom_col() +
   labs(x = "Credit Status",
@@ -124,8 +127,25 @@ Create:
 - a table of the outcome variable
 - a bar plot of the outcome variable
 
+```{r}
+#| label: tbl-status
+#| tbl-cap: "Status Table"
+#| tbl-cap-location: top
+
+credit_data %>% 
+  count(Status) %>% 
+  mutate(Percent = (n / sum(n)) *100)
+
+```
+
+
+
 ```{r class-balance}
-# Write code here
+
+ggplot(credit_data, aes(x = Status, fill = Status)) +
+  geom_bar()
+
+
 ```
 
 Then answer:
@@ -136,7 +156,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+The dataset is not balanced. There are more people with good credit than bad credit. Class balance matters when evaluating because this directly impacts accuracy. To be specific, since the classes are imbalanced, a logistic regression model only learns to predict the majority class (good), and not the minority class (bad). Accuracy may be misleading because we can only be accurate pertaining to the good credit since we have alot of data on it. But, we cannot be accurate on the bad credit since there isn't alot of data to go off of.
 
 ---
 
