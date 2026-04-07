@@ -75,7 +75,7 @@ Prompt yourself with these questions:
 
 **Response:**
 
-The dataset has 4454 rows and 14 columns. Most of the variables are numerical but a handful such as status, home, marital, records, and job are categorical predictors. The outcome is cateogorical (e.g good / bad). Variables that are useful for prediction include job, expenses, income, assests, debt, amount, and price.
+The dataset has 4454 rows and 14 columns. Most of the variables are numerical but a handful such as status, home, marital, records, and job are categorical predictors. The outcome is categorical (e.g good / bad). Variables that are useful for prediction include job, expenses, income, assests, debt, amount, and price.
 ---
 
 # Part 1: Understanding the Classification Problem
@@ -93,11 +93,6 @@ Your code should:
 ```{r outcome-exploration}
 
 summary(credit_data$Status)
-
-ggplot(credit_data, aes(x = Status, y = Income)) +
-  geom_col() +
-  labs(x = "Credit Status",
-       title = "Credit Status by Income")
 
 
 ggplot(credit_data, aes(x = Status, fill = Job)) +
@@ -283,6 +278,7 @@ You should generate:
 Then combine those predictions with the original test data.
 
 ```{r logistic-predictions}
+
 
 ```
 
