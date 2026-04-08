@@ -540,7 +540,9 @@ A decision tree is different from logistic regression because it splits off base
 Visualize your fitted tree using `rpart.plot()`.
 
 ```{r tree-plot}
-# Write code here
+tree_fit %>% 
+  extract_fit_engine() %>% 
+  rpart.plot()
 ```
 
 Then answer:
@@ -551,7 +553,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+The variable that appears in the first split is job. The terminal nodes represent the final prediction for a group of people based on the above variables. A tree may be easier to interpret because we can easily visualize how an individual is classified as good or bad. For example, we can see in this tree the variables which influence an individual's status as bad (e.g having a part-time job).
 
 ## 8.3 Generate predictions for the tree
 
