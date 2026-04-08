@@ -560,7 +560,11 @@ The variable that appears in the first split is job. The terminal nodes represen
 Create both probability and class predictions for the tree on the test set, then combine them with the test data.
 
 ```{r tree-predictions}
-# Write code here
+tree_preds <- predict(tree_fit, test_data, type = "prob") %>% 
+  bind_cols(predict(tree_fit, test_data)) %>% 
+  bind_cols(test_data)
+
+tree_preds
 ```
 
 ## 8.4 Evaluate the tree
@@ -571,7 +575,9 @@ Evaluate the tree using:
 - `metrics()`
 
 ```{r tree-evaluation}
-# Write code here
+conf_mat(tree_preds, truth = Status, estimate = .pred_class)
+
+metrics(tree_preds, truth = Status, estimate = .pred_class)
 ```
 
 Then answer:
@@ -583,7 +589,7 @@ Then answer:
 
 **Response:**
 
-_Type your response here._
+Compared to the logistic regression, the tree is more accurate at 74.5% accuracy. The tree model is easier to interpret, and I'd choose the tree model because we can how variables such as Job can directly influence an individuals likelihood to be classified as either good or bad.
 
 ---
 
