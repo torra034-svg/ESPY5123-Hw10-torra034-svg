@@ -391,7 +391,7 @@ Then answer:
 
 **Response:**
 
-I mapped the the Freq variable to fill so it would show the counts in my geom_tile() plot. Geom_tile is appropriate because we are showing a 2x2 table that shows a visualization of how accurate our model is. The patterns that are super easy to notice are the counts and colors. For example, it is very easy to see that are good x good cell has 587 counts and is light blue.
+I mapped the the Freq variable to fill so it would show the counts in my geom_tile() plot. Geom_tile is appropriate because we are showing a 2x2 table that shows a visualization of how accurate our model is. The patterns that are super easy to notice are the counts and colors. For example, it is very easy to see that our good x good cell has 587 counts and is light blue.
 
 ## 6.2 Confusion matrix heatmap using proportions
 
@@ -589,7 +589,7 @@ Then answer:
 
 **Response:**
 
-Compared to the logistic regression, the tree is more accurate at 74.5% accuracy. The tree model is easier to interpret, and I'd choose the tree model because we can how variables such as Job can directly influence an individuals likelihood to be classified as either good or bad.
+Compared to the logistic regression, the tree is less accurate. The former has 77.1% accuracy whereas the later is at 74.5% accuracy. However, the tree model is easier to interpret, and I'd choose the tree model because we can how variables such as Job can directly influence an individuals likelihood to be classified as either good or bad.
 
 ---
 
@@ -604,7 +604,11 @@ Write full-sentence responses to the following:
 
 **Response:**
 
-_Type your response here._
+1. The most challenging part of this assignment was interpreting our model outputs such as the confusion matrix, ROC curves, and the decision tree.
+
+2. Selecting predictor variables such as Job, Income, and Debt affected the performance of the model. It is highly likely that an individual's job and income are correlated and thus, the model's accuracy may be higher than we anticipate due to this correlation.
+3. If I had more time, I would try accounting for the interaction effect between variables by creating interaction terms in my model.
+4. This workflow is incredibly applicative to my own research because I am able to create logistic regression models and tree decisions that isn't based on BaseR. And, I am able to interpret my model's output more effectively, in terms of a logistic regression, since I can see how each terminal node came to be.
 
 ---
 
